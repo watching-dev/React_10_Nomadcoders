@@ -9,10 +9,10 @@
   <script type="text/babel">
     const root = document.getElementById("root");
     function App() {
-      const data = React.useState(0);
+      const [counter, modifier] = React.useState(0);
       // const food = ["tomato", "potato"];
-      // const [firstFood, secondFood] = food; // 이거랑
-      // const myFood = food[0]; // 이거랑 같은거
+      // const [firstFood, secondFood] = food; // 이렇게 하는거랑
+      // const myFood = food[0]; // 이렇게 하는거는 똑같음
 
       return (
         <div>
