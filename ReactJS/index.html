@@ -11,6 +11,9 @@
     let counter = 0;
     function countUp() {
       counter = counter + 1;
+      render();
+    }
+    function render() {
       ReactDOM.render(<Container />, root);
     }
     const Container = () => (
@@ -19,6 +22,6 @@
         <button onClick={countUp}>Click me</button>
       </div>
     );
-    ReactDOM.render(<Container />, root);
+    render();
   </script>
 </html>
