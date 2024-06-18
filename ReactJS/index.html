@@ -9,9 +9,9 @@
   <script type="text/babel">
     const root = document.getElementById("root");
     function App() {
-      const [counter, modifier] = React.useState(0);
+      const [counter, setCounter] = React.useState(0);
       const onClick = () => {
-        modifier(234234); // 이거는
+        setCounter(counter + 1); // 이거는
         // counter = 100; // 이거와
         // ReactDOM.render(<App />, root); // 이거를 한 것과 같음
       };
