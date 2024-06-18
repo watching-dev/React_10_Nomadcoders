@@ -9,11 +9,11 @@
   <script type="text/babel">
     const root = document.getElementById("root");
     function App() {
-      let [counter, modifier] = React.useState(0);
+      const [counter, modifier] = React.useState(0);
       const onClick = () => {
-        counter = counter + 1;
-        console.log(counter);
-        ReactDOM.render(<App />, root);
+        modifier(234234); // 이거는
+        // counter = 100; // 이거와
+        // ReactDOM.render(<App />, root); // 이거를 한 것과 같음
       };
 
       return (
