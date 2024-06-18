@@ -9,15 +9,16 @@
   <script type="text/babel">
     const root = document.getElementById("root");
     function App() {
-      const [counter, modifier] = React.useState(0);
-      // const food = ["tomato", "potato"];
-      // const [firstFood, secondFood] = food; // 이렇게 하는거랑
-      // const myFood = food[0]; // 이렇게 하는거는 똑같음
+      let [counter, modifier] = React.useState(0);
+      const onClick = () => {
+        counter = counter + 1;
+        console.log(counter);
+      };
 
       return (
         <div>
           <h3>Toal clicks: {counter}</h3>
-          <button>Click me</button>
+          <button onClick={onClick}>Click me</button>
         </div>
       );
     }
