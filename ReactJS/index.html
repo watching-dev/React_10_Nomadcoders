@@ -11,6 +11,7 @@
     let counter = 0;
     function countUp() {
       counter = counter + 1;
+      ReactDOM.render(<Container />, root);
     }
     const Container = () => (
       <div>
