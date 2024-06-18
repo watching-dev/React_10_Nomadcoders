@@ -9,10 +9,13 @@
   <script type="text/babel">
     const root = document.getElementById("root");
     let counter = 0;
+    function countUp() {
+      counter = counter + 1;
+    }
     const Container = () => (
       <div>
         <h3>Toal clicks: {counter}</h3>
-        <button>Click me</button>
+        <button onClick={countUp}>Click me</button>
       </div>
     );
     ReactDOM.render(<Container />, root);
