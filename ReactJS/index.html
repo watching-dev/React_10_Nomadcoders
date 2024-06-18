@@ -13,11 +13,11 @@
     //   // code
     // }
     function App() {
-      const data = React.useState(0);
+      const data = React.useState(111);
       console.log(data);
       return (
         <div>
-          <h3>Toal clicks: 0</h3>
+          <h3>Toal clicks: {data[0]}</h3>
           <button>Click me</button>
         </div>
       );
