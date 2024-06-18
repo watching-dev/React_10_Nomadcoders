@@ -8,9 +8,10 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
+    let counter = 0;
     const Container = () => (
       <div>
-        <h3>Toal clicks: 0</h3>
+        <h3>Toal clicks: {counter}</h3>
         <button>Click me</button>
       </div>
     );
