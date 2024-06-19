@@ -17,7 +17,10 @@
         setAmount(0);
       };
       // const onFlip = () => setFlipped(!flipped); // 이것도 좋긴 하지만
-      const onFlip = () => setFlipped((current) => !current); // 이렇게 해야 더 안전하다
+      const onFlip = () => {
+        reset();
+        setFlipped((current) => !current); // 이렇게 해야 더 안전하다
+      };
       return (
         <div>
           <h1 className="hi">Super Converter</h1>
