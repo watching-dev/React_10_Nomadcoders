@@ -8,11 +8,17 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     function App() {
+      const [minutes, setMinutes] = React.useState();
       return (
         <div>
           <h1 className="hi">Super Converter</h1>
           <label htmlFor="minutes">Minutes</label>
-          <input id="minutes" placeholder="Minutes" type="number" />
+          <input
+            value={minutes}
+            id="minutes"
+            placeholder="Minutes"
+            type="number"
+          />
           <label htmlFor="hours">Hours</label>
           <input id="hours" placeholder="Hours" type="number" />
         </div>
