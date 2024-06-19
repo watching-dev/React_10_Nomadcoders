@@ -9,8 +9,8 @@
   <script type="text/babel">
     function App() {
       const [minutes, setMinutes] = React.useState();
-      const onChange = () => {
-        console.log("wrote");
+      const onChange = (event) => {
+        console.log(event);
       };
       return (
         <div>
