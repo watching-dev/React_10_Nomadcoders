@@ -9,6 +9,9 @@
   <script type="text/babel">
     function App() {
       const [minutes, setMinutes] = React.useState();
+      const onChange = () => {
+        console.log("wrote");
+      };
       return (
         <div>
           <h1 className="hi">Super Converter</h1>
@@ -18,6 +21,7 @@
             id="minutes"
             placeholder="Minutes"
             type="number"
+            onChange={onChange}
           />
           <label htmlFor="hours">Hours</label>
           <input id="hours" placeholder="Hours" type="number" />
