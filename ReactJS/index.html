@@ -8,7 +8,7 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     function App() {
-      const [minutes, setMinutes] = React.useState();
+      const [minutes, setMinutes] = React.useState(0);
       const onChange = (event) => {
         setMinutes(event.target.value);
       };
