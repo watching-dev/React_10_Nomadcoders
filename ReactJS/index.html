@@ -24,7 +24,7 @@
           <div>
             <label htmlFor="minutes">Minutes</label>
             <input
-              value={amount}
+              value={flipped ? amount * 60 : amount}
               id="minutes"
               placeholder="Minutes"
               type="number"
