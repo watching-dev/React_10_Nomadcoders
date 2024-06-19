@@ -29,6 +29,7 @@
               placeholder="Minutes"
               type="number"
               onChange={onChange}
+              disabled={flipped === true}
             />
           </div>
 
@@ -39,7 +40,7 @@
               id="hours"
               placeholder="Hours"
               type="number"
-              disabled={true}
+              disabled={flipped === false}
             />
           </div>
 
