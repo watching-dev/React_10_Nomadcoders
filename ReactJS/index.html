@@ -36,7 +36,7 @@
           <div>
             <label htmlFor="hours">Hours</label>
             <input
-              value={Math.round(minutes / 60)}
+              value={flipped ? minutes : Math.round(minutes / 60)}
               id="hours"
               placeholder="Hours"
               type="number"
