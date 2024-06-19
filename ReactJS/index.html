@@ -56,11 +56,10 @@
       return <h3>KM 2 M</h3>;
     }
     function App() {
+      const [index, setIndex] = React.useState(0);
       return (
         <div>
           <h1 className="hi">Super Converter</h1>
-          <MinutesToHours />
-          <KmToMiles />
         </div>
       );
     }
