@@ -11,9 +11,8 @@
     function App() {
       const [counter, setCounter] = React.useState(0);
       const onClick = () => {
-        setCounter(counter + 1); // 이거는
-        // counter = 100; // 이거와
-        // ReactDOM.render(<App />, root); // 이거를 한 것과 같음
+        // setCounter(counter + 1);
+        setCounter((current) => current + 1);
       };
 
       return (
