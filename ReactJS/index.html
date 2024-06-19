@@ -29,7 +29,7 @@
           <div>
             <label htmlFor="hours">Hours</label>
             <input
-              value={minutes / 60}
+              value={Math.round(minutes / 60)}
               id="hours"
               placeholder="Hours"
               type="number"
