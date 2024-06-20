@@ -7,10 +7,10 @@
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function Btn({ text, onClick }) {
+    function Btn({ text, changeValue }) {
       return (
         <button
-          onClick={onClick}
+          onClick={changeValue}
           style={{
             backgroundColor: "tomato",
             color: "white",
@@ -28,7 +28,7 @@
       const changeValue = () => setValue("Revert Changes");
       return (
         <div>
-          <Btn text={value} onClick={changeValue} />
+          <Btn text={value} changeValue={changeValue} />
           <Btn text="Continue" />
         </div>
       );
