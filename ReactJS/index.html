@@ -28,7 +28,7 @@
     const MemorizedBtn = React.memo(Btn);
     Btn.propTypes = {
       text: PropTypes.string.isRequired,
-      fontSize: PropTypes.number.isRequired,
+      fontSize: PropTypes.number,
     };
     function App() {
       const [value, setValue] = React.useState("Save Changes");
@@ -36,7 +36,7 @@
       return (
         <div>
           <Btn text={value} changeValue={changeValue} fontSize={18} />
-          <Btn fontSize={18} />
+          <Btn text={"text"} />
           <MemorizedBtn text="Continue" />
         </div>
       );
