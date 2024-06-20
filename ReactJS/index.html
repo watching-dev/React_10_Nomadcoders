@@ -7,8 +7,7 @@
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function Btn(props) {
-      console.log(props);
+    function Btn({ banana }) {
       return (
         <button
           style={{
@@ -19,7 +18,7 @@
             borderRadius: 10,
           }}
         >
-          {props.banana}
+          {banana}
         </button>
       );
     }
