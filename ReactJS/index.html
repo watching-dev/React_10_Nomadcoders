@@ -19,15 +19,15 @@
             borderRadius: 10,
           }}
         >
-          Save Changes
+          {props.banana}
         </button>
       );
     }
     function App() {
       return (
         <div>
-          <Btn banana="Save Changes" x={false} />
-          <Btn banana="Continue" y={7} />
+          <Btn banana="Save Changes" />
+          <Btn banana="Continue" />
         </div>
       );
     }
