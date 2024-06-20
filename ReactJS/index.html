@@ -7,7 +7,7 @@
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function Btn({ banana }) {
+    function Btn({ text }) {
       return (
         <button
           style={{
@@ -18,15 +18,15 @@
             borderRadius: 10,
           }}
         >
-          {banana}
+          {text}
         </button>
       );
     }
     function App() {
       return (
         <div>
-          <Btn banana="Save Changes" big={true} />
-          <Btn banana="Continue" big={false} />
+          <Btn text="Save Changes" />
+          <Btn text="Continue" />
         </div>
       );
     }
