@@ -8,6 +8,7 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     function Btn(props) {
+      console.log(props);
       return (
         <button
           style={{
@@ -25,9 +26,8 @@
     function App() {
       return (
         <div>
-          // Btn({banana: "Save Changes"}) 이것과
-          <Btn banana="Save Changes" /> // 이거는 같다
-          <Btn banana="Continue" />
+          <Btn banana="Save Changes" x={false} />
+          <Btn banana="Continue" y={7} />
         </div>
       );
     }
