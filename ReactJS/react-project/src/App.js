@@ -9,6 +9,18 @@ function Hello() {
     return destroyed;
   }
   useEffect(created, []);
+  // useEffect 만드는 법 비교
+  // useEffect(() => {
+  //   console.log("created");
+  //   return () => console.log("destroyed");
+  // }, []);
+
+  // useEffect(function () {
+  //   console.log("created");
+  //   return function () {
+  //     console.log("destroyed");
+  //   };
+  // }, []);
   return <h1>hello</h1>;
 }
 
