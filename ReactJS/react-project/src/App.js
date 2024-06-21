@@ -11,6 +11,9 @@ function App() {
     console.log("only once");
   };
   useEffect(onlyOnce, []);
+  useEffect(() => {
+    console.log("keyWord");
+  }, [keyWord]);
   return (
     <div>
       <input
