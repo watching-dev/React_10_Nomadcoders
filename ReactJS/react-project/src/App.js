@@ -12,7 +12,9 @@ function App() {
   };
   useEffect(onlyOnce, []);
   useEffect(() => {
-    console.log("keyWord");
+    if (keyWord !== "" && keyWord.length > 5) {
+      console.log("keyWord");
+    }
   }, [keyWord]);
   return (
     <div>
