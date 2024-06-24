@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [toDo, setTodo] = useState("");
-  const [toDos, etToDos] = useState([]);
+  const [toDos, setToDos] = useState([]);
   const onChange = (event) => setTodo(event.target.value);
   const onSubmit = (event) => {
     event.preventDefault();
@@ -19,7 +19,7 @@ function App() {
   };
   return (
     <div>
-      <form onSubmit={{ onSubmit }}>
+      <form onSubmit={onSubmit}>
         <input
           value={toDo}
           onChange={onChange}
