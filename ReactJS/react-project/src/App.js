@@ -5,12 +5,14 @@ function App() {
   const onChange = (event) => setTodo(event.target.value);
   return (
     <div>
-      <input
-        value={toDo}
-        onChange={onChange}
-        type="text"
-        placeholder="write!"
-      />
+      <form>
+        <input
+          value={toDo}
+          onChange={onChange}
+          type="text"
+          placeholder="write!"
+        />
+      </form>
     </div>
   );
 }
