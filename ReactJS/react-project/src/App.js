@@ -13,6 +13,7 @@ function App() {
     setToDos((currentArray) => [toDo, ...currentArray]); // -- 이거랑
     // toDo가 3이고 ...currentArray라면
     // [[0], [1], [2]] 이것과 같음 그냥 currentArray로 적으면 전체 배열을 그대로 넣어버림
+    // [[Array]] ...이 없으면 이렇게 됨(초기값은 [] 니깐)
     // setToDos(function(currentArray){ // -- 이거랑 같음
     //   return []
     // } )
@@ -29,6 +30,12 @@ function App() {
         />
         <button>Add To Do</button>
       </form>
+      <hr />
+      <ul>
+        {toDos.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
