@@ -10,6 +10,9 @@ function App() {
       return;
     }
     setTodo("");
+    // state의 변수에는 절대 직접적으로 데이터를 넣지 않는다
+    // toDos.push("")
+    // toDos = ""
   };
   return (
     <div>
