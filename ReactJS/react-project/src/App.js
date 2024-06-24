@@ -13,15 +13,18 @@ function App() {
   }, []);
   return (
     <div>
-      <h1>The Conis! ({coins.length})</h1>
-      {loading ? <strong>Loading!</strong> : null}
-      <select>
-        {coins.map((coin) => (
-          <option>
-            {coin.name} ({coin.symbol}): ${coin.quotes.USD.price} USD
-          </option>
-        ))}
-      </select>
+      <h1>The Conis! {loading ? "" : `(${coins.length})`}</h1>
+      {loading ? (
+        <strong>Loading!</strong>
+      ) : (
+        <select>
+          {coins.map((coin) => (
+            <option>
+              {coin.name} ({coin.symbol}): ${coin.quotes.USD.price} USD
+            </option>
+          ))}
+        </select>
+      )}
     </div>
   );
 }
