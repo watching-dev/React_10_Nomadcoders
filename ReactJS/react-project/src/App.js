@@ -19,6 +19,7 @@ function App() {
   };
   return (
     <div>
+      <h1>My Todo ({toDos.length})</h1>
       <form onSubmit={onSubmit}>
         <input
           value={toDo}
