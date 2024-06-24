@@ -23,7 +23,16 @@ function App() {
       ) : (
         <div>
           {movies.map((movie) => (
-            <div key={movie.id}>{movie.title}</div>
+            <div key={movie.id}>
+              <h2>{movie.title}</h2>
+              <p>{movie.summary}</p>
+              <ul>
+                {/* 또 배열 값이기 때문에 map 사용 / map은 key를 등록해야 함  */}
+                {movie.genres.map((g) => (
+                  <li key={g}>{g}</li>
+                ))}
+              </ul>
+            </div>
           ))}
         </div>
       )}
