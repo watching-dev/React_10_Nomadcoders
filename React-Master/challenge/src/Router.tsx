@@ -5,6 +5,7 @@ import About from "./screens/About";
 import NotFound from "./screens/NotFound";
 import ErrorComponent from "./screens/components/ErrorComponent";
 import User from "./screens/users/User";
+import Followers from "./screens/users/Followers";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,12 @@ const router = createBrowserRouter([
       {
         path: "users/:userId",
         element: <User />,
+        children: [
+          {
+            path: "followers",
+            element: <Followers />,
+          },
+        ],
       },
       // { users에 출력하는게 있다면 아래처럼 해야함
       //   path: "users",
