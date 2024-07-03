@@ -10,7 +10,8 @@ function Header() {
         <Link to={"/"}>Home</Link>
       </li>
       <li>
-        <button onClick={onAboutClick}>About</button>
+        {/* <button onClick={onAboutClick}>About</button> */}
+        <Link to={"/about"}>About</Link>
       </li>
     </ul>
   );
