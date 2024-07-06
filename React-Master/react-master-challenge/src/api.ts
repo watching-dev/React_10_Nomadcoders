@@ -3,19 +3,12 @@
 //   const json = await response.json();
 //   return json;
 // }
-const BASE_URL = "https://api.coinpaprika.com/v1";
-export function fetchCoins() {
-  return fetch(`${BASE_URL}/coins`).then((response) => response.json());
+const BASE_URL = "https://disney_api.nomadcoders.workers.dev";
+export function fetchCharacter() {
+  return fetch(`${BASE_URL}/characters`).then((response) => response.json());
 }
-
-export function fetchCoinInfo(coinId: string) {
-  return fetch(`${BASE_URL}/coins/${coinId}`).then((response) =>
-    response.json()
-  );
-}
-
-export function fetchCoinTickers(coinId: string) {
-  return fetch(`${BASE_URL}/tickers/${coinId}`).then((response) =>
+export function fetchCharacterInfo(id: string) {
+  return fetch(`${BASE_URL}/characters/${id}`).then((response) =>
     response.json()
   );
 }
