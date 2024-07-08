@@ -22,8 +22,26 @@ import { useForm } from "react-hook-form";
 //   );
 // }
 
+interface IForm {
+  todo1: string;
+  todo2: string;
+  todo3: string;
+  todo4: string;
+  todo5: string;
+  todo6: string;
+}
+
 function ToDoList() {
-  const { register, watch, handleSubmit, formState } = useForm();
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IForm>({
+    defaultValues: {
+      todo1: "@naver.com",
+    },
+  });
   const onValid = (data: any) => {};
   return (
     <div>
@@ -32,27 +50,41 @@ function ToDoList() {
         onSubmit={handleSubmit(onValid)}
       >
         <input
-          {...register("to do1", { required: true })}
+          {...register("todo1", {
+            required: "require",
+            pattern: /^[A-Za-z0-9._%+-]+@naver.com$/,
+          })}
           placeholder="Write a to do1"
         />
+        <span>{errors?.todo1?.message as string}</span>
         <input
-          {...register("to do2", { required: true, minLength: 10 })}
+          {...register("todo2", { required: "require", minLength: 10 })}
           placeholder="Write a to do2"
         />
+        <span>{errors?.todo2?.message as string}</span>
         <input
-          {...register("to do3", { required: true })}
+          {...register("todo3", {
+            required: "email require",
+            pattern: {
+              value: /^[A-Za-z0-9._%+-]+@naver.com$/,
+              message: "only naver",
+            },
+          })}
           placeholder="Write a to do3"
         />
+        <span>{errors?.todo3?.message as string}</span>
         <input
-          {...register("to do4", { required: true })}
+          {...register("todo4", { required: "require" })}
           placeholder="Write a to do4"
         />
+        <span>{errors?.todo4?.message as string}</span>
         <input
-          {...register("to do5", { required: true })}
+          {...register("todo5", { required: "require" })}
           placeholder="Write a to do5"
         />
+        <span>{errors?.todo5?.message as string}</span>
         <input
-          {...register("to do6", {
+          {...register("todo6", {
             required: "password is required",
             minLength: {
               value: 5,
@@ -61,6 +93,7 @@ function ToDoList() {
           })}
           placeholder="Write a to do6"
         />
+        <span>{errors?.todo6?.message as string}</span>
         <button>Add</button>
       </form>
     </div>
