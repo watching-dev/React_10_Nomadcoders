@@ -1,3 +1,4 @@
+import { error } from "console";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -29,6 +30,7 @@ interface IForm {
   todo4: string;
   todo5: string;
   todo6: string;
+  extraError?: string;
 }
 
 function ToDoList() {
@@ -37,12 +39,23 @@ function ToDoList() {
     watch,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm<IForm>({
     defaultValues: {
       todo1: "@naver.com",
     },
   });
-  const onValid = (data: any) => {};
+  const onValid = (data: IForm) => {
+    setError(
+      "extraError",
+      {
+        message: "Server offline",
+      },
+      {
+        shouldFocus: true,
+      }
+    );
+  };
   return (
     <div>
       <form
@@ -52,6 +65,7 @@ function ToDoList() {
         <input
           {...register("todo1", {
             required: "require",
+            validate: (value) => (!value.includes("nico") ? "no allow" : true),
             pattern: /^[A-Za-z0-9._%+-]+@naver.com$/,
           })}
           placeholder="Write a to do1"
@@ -95,6 +109,7 @@ function ToDoList() {
         />
         <span>{errors?.todo6?.message as string}</span>
         <button>Add</button>
+        <span>{errors?.extraError?.message}</span>
       </form>
     </div>
   );
