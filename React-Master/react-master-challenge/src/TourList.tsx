@@ -11,26 +11,26 @@ export enum SelectKeys {
   "WANT" = "WANT",
 }
 
-export interface IToDo {
+export interface IList {
   id: number;
   text: string;
   filter: SelectKeys;
 }
 
-export const todoFilterState = atom<SelectKeys>({
-  key: "todoFilterState",
+export const listFilterState = atom<SelectKeys>({
+  key: "listFilterState",
   default: SelectKeys.WANT,
 });
 
-export const todoState = atom<IToDo[]>({
-  key: "todoState",
+export const listState = atom<IList[]>({
+  key: "listState",
   default: JSON.parse(localStorage.getItem("list") || "[]"),
 });
 
-export const toDoSelector = selector({
-  key: "todoSelector",
+export const listSelector = selector({
+  key: "listSelector",
   get: ({ get }) => {
-    const todos = get(todoState);
+    const todos = get(listState);
 
     return [
       todos.filter((toDo) => toDo.filter === SelectKeys.GONE),
@@ -40,9 +40,9 @@ export const toDoSelector = selector({
   },
 });
 
-const ToDo = ({ text, filter, id }: IToDo) => {
-  const setList = useSetRecoilState(todoState);
-  const onClick = (setFilterKey: IToDo["filter"]) => {
+const ToDo = ({ text, filter, id }: IList) => {
+  const setList = useSetRecoilState(listState);
+  const onClick = (setFilterKey: IList["filter"]) => {
     setList((prevToDos) => {
       console.log(prevToDos.map((tod) => console.log(tod)));
       if (setFilterKey === SelectKeys.DEL) {
@@ -79,9 +79,9 @@ const ToDo = ({ text, filter, id }: IToDo) => {
   );
 };
 
-const CreateToDo = () => {
-  const setToDoList = useSetRecoilState(todoState);
-  const filterKey = useRecoilValue(todoFilterState);
+const CreateList = () => {
+  const setToDoList = useSetRecoilState(listState);
+  const filterKey = useRecoilValue(listFilterState);
 
   const {
     register,
@@ -142,9 +142,9 @@ interface IForm {
   extraError?: string;
 }
 
-function ToDoList() {
-  const list = useRecoilValue(todoState);
-  const [gone, like, want] = useRecoilValue(toDoSelector);
+function TourList() {
+  const list = useRecoilValue(listState);
+  const [gone, like, want] = useRecoilValue(listSelector);
 
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(list));
@@ -155,7 +155,7 @@ function ToDoList() {
       <Header>
         <Title>내가 가고싶은 나라들</Title>
       </Header>
-      <CreateToDo />
+      <CreateList />
       <div>
         <h2></h2>
         <div>
@@ -180,4 +180,4 @@ function ToDoList() {
   );
 }
 
-export default ToDoList;
+export default TourList;
