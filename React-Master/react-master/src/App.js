@@ -4,6 +4,7 @@ import {
   motion,
   useMotionValue,
   useMotionValueEvent,
+  useTransform,
 } from "framer-motion";
 import { useEffect, useRef } from "react";
 
@@ -28,7 +29,8 @@ function App() {
   // useEffect(() => {
   //   x.on("change", () => console.log(x.get()));
   // }, [x]);
-  useMotionValueEvent(x, "change", (latest) => {
+  const potato = useTransform(x, [-800, 0, 800], [2, 1, 0.1]);
+  useMotionValueEvent(potato, "change", (latest) => {
     console.log("x changed to", latest);
   });
 
@@ -41,7 +43,7 @@ function App() {
       >
         click me
       </button>
-      <Box style={{ x }} drag="x" dragSnapToOrigin></Box>
+      <Box style={{ x, scale: potato }} drag="x" dragSnapToOrigin></Box>
     </Wrapper>
   );
 }
