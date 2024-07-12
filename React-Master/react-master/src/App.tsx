@@ -8,7 +8,8 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import React from "react";
+import { useState } from "react";
 
 const Wrapper = styled(motion.div)`
   height: 100vh;
