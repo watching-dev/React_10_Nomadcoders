@@ -36,7 +36,7 @@ const Box = styled(motion.div)`
 
 const box = {
   entry: (back: boolean) => ({
-    x: 500,
+    x: back ? -500 : 500,
     opacity: 0,
     scale: 0,
   }),
@@ -46,7 +46,7 @@ const box = {
     scale: 1,
   },
   exit: (back: boolean) => ({
-    x: -500,
+    x: back ? 500 : -500,
     opacity: 0,
     scale: 0,
   }),
