@@ -14,9 +14,9 @@ function App() {
         </Route>
         <Route path="/search">
           <Search />
-          <Route path="/">
-            <Home />
-          </Route>
+        </Route>
+        <Route path="/">
+          <Home />
         </Route>
       </Switch>
     </Router>
