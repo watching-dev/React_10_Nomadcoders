@@ -9,6 +9,26 @@ const options = {
   },
 };
 
+interface IMovie {
+  backdrop_path: string;
+  overview: string;
+  poster_path: string;
+  title: string;
+  id: number;
+}
+
+export interface IGetMoviesResult {
+  dates: {
+    maximum: string;
+    minimum: string;
+  };
+
+  page: number;
+  results: IMovie[];
+  total_pages: number;
+  total_results: number;
+}
+
 export function getMovies() {
   return fetch(
     `${BASE_PATH}/movie/now_playing?language=ko-KR&page=1`,
