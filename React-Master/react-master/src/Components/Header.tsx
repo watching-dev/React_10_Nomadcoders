@@ -1,6 +1,7 @@
 import { Link, useRouteMatch } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Nav = styled.nav`
   display: flex;
@@ -81,8 +82,10 @@ const logoVariants = {
 };
 
 function Header() {
+  const [searchOpen, setSearchOpen] = useState(false);
   const homeMatch = useRouteMatch("/");
   const tvMatch = useRouteMatch("/tv");
+  const openSearch = () => setSearchOpen(true);
   return (
     <Nav>
       <Col>
@@ -111,7 +114,7 @@ function Header() {
         </Items>
       </Col>
       <Col>
-        <Search>
+        <Search onClick={openSearch}>
           <svg
             fill="currentColor"
             viewBox="0 0 20 20"
