@@ -52,6 +52,8 @@ const Item = styled.li`
 
 const Search = styled.span`
   color: white;
+  display: flex;
+  align-items: center;
   svg {
     height: 25px;
   }
@@ -68,6 +70,8 @@ const Circle = styled(motion.span)`
   margin: 0 auto;
   background-color: ${(props) => props.theme.red};
 `;
+
+const Input = styled(motion.input)``;
 
 const logoVariants = {
   normal: {
@@ -126,6 +130,7 @@ function Header() {
               clipRule="evenodd"
             ></path>
           </svg>
+          <Input placeholder="search" />
         </Search>
       </Col>
     </Nav>
