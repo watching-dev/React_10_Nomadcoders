@@ -94,7 +94,7 @@ function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const homeMatch = useRouteMatch("/");
   const tvMatch = useRouteMatch("/tv");
-  const openSearch = () => setSearchOpen(true);
+  const toggleSearch = () => setSearchOpen((prev) => !prev);
   return (
     <Nav>
       <Col>
@@ -123,9 +123,11 @@ function Header() {
         </Items>
       </Col>
       <Col>
-        <Search onClick={openSearch}>
+        <Search>
           <motion.svg
+            onClick={toggleSearch}
             animate={{ x: searchOpen ? -180 : 0 }}
+            transition={{ type: "linear" }}
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -138,6 +140,7 @@ function Header() {
           </motion.svg>
           <Input
             animate={{ scaleX: searchOpen ? 1 : 0 }}
+            transition={{ type: "linear" }}
             placeholder="search"
           />
         </Search>
