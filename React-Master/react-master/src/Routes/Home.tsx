@@ -3,6 +3,7 @@ import { getMovies, IGetMoviesResult } from "../api";
 import styled from "styled-components";
 import { makeImagePath } from "../utils";
 import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 
 const Wrapper = styled.div`
   background-color: black;
@@ -53,11 +54,25 @@ const Box = styled(motion.div)`
   height: 200px;
 `;
 
+const rowVariants = {
+  hidden: {
+    x: 1000,
+  },
+  visible: {
+    x: 0,
+  },
+  exit: {
+    x: -1000,
+  },
+};
+
 function Home() {
   const { data, isLoading } = useQuery<IGetMoviesResult>(
     ["movies", "nowPlaying"],
     getMovies
   );
+  const [index, setIndex] = useState(0);
+  const increaseIndex = () => setIndex((prev) => prev + 1);
   console.log(data, isLoading);
   console.log("----");
   return (
@@ -72,7 +87,13 @@ function Home() {
           </Banner>
           <Slider>
             <AnimatePresence>
-              <Row>
+              <Row
+                variants={rowVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                key={index}
+              >
                 <Box />
                 <Box />
                 <Box />
