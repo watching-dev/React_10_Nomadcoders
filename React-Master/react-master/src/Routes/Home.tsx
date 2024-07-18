@@ -75,7 +75,13 @@ function Home() {
     getMovies
   );
   const [index, setIndex] = useState(0);
-  const increaseIndex = () => setIndex((prev) => prev + 1);
+  const increaseIndex = () => {
+    if (leaving) return;
+    toggleLeaving();
+    setIndex((prev) => prev + 1);
+  };
+  const [leaving, setLeaving] = useState(false);
+  const toggleLeaving = () => setLeaving((prev) => !prev);
   console.log(data, isLoading);
   console.log("----");
   return (
@@ -89,7 +95,7 @@ function Home() {
             <Overview>{data?.results[0].overview}</Overview>
           </Banner>
           <Slider>
-            <AnimatePresence>
+            <AnimatePresence onExitComplete={toggleLeaving}>
               <Row
                 variants={rowVariants}
                 initial="hidden"
