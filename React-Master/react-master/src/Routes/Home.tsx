@@ -44,7 +44,7 @@ const Slider = styled.div`
 
 const Row = styled(motion.div)`
   display: grid;
-  gap: 10px;
+  gap: 5px;
   position: absolute;
   grid-template-columns: repeat(6, 1fr);
   width: 100%;
@@ -59,13 +59,13 @@ const Box = styled(motion.div)`
 
 const rowVariants = {
   hidden: {
-    x: window.outerWidth + 10,
+    x: window.outerWidth + 5,
   },
   visible: {
     x: 0,
   },
   exit: {
-    x: -window.outerWidth - 10,
+    x: -window.outerWidth - 5,
   },
 };
 
@@ -76,12 +76,17 @@ function Home() {
   );
   const [index, setIndex] = useState(0);
   const increaseIndex = () => {
-    if (leaving) return;
-    toggleLeaving();
-    setIndex((prev) => prev + 1);
+    if (data) {
+      if (leaving) return;
+      toggleLeaving();
+      const totalMovies = data.results.length - 1;
+      const maxIndex = Math.ceil(totalMovies / offset) - 1; // Math.ceil은 소수 올림처리, Math.floor는 내림처리
+      setIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
+    }
   };
   const [leaving, setLeaving] = useState(false);
   const toggleLeaving = () => setLeaving((prev) => !prev);
+  const offset = 6;
   console.log(data, isLoading);
   console.log("----");
   return (
@@ -104,9 +109,12 @@ function Home() {
                 transition={{ type: "tween", duration: 1 }}
                 key={index}
               >
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <Box key={i}>{i}</Box>
-                ))}
+                {data?.results
+                  .slice(1)
+                  .slice(offset * index, offset * index + offset)
+                  .map((movie) => (
+                    <Box key={movie.id}>{movie.title}</Box>
+                  ))}
               </Row>
             </AnimatePresence>
           </Slider>
