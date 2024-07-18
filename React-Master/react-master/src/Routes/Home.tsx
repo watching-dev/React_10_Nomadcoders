@@ -77,8 +77,10 @@ const boxVariants = {
   },
   hover: {
     scale: 1.3,
+    y: -50,
     transition: {
       delay: 0.5,
+      type: "tween",
     },
   },
 };
@@ -132,6 +134,7 @@ function Home() {
                       bgPhoto={makeImagePath(movie.backdrop_path, "w500")}
                       whileHover="hover"
                       initial="normal"
+                      transition={{ type: "tween" }}
                       variants={boxVariants}
                     />
                   ))}
