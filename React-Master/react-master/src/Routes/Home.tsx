@@ -82,7 +82,7 @@ function Home() {
       if (leaving) return;
       toggleLeaving();
       const totalMovies = data.results.length - 1;
-      const maxIndex = Math.ceil(totalMovies / offset) - 1; // Math.ceil은 소수 올림처리, Math.floor는 내림처리
+      const maxIndex = Math.floor(totalMovies / offset) - 1; // Math.ceil은 소수 올림처리, Math.floor는 내림처리
       setIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
     }
   };
