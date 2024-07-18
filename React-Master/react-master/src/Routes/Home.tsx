@@ -55,6 +55,8 @@ const Box = styled(motion.div)<{ bgPhoto: string }>`
   height: 200px;
   background-image: url(${(props) => props.bgPhoto});
   font-size: 66px;
+  background-size: cover;
+  background-position: center center;
 `;
 
 const rowVariants = {
@@ -115,7 +117,7 @@ function Home() {
                   .map((movie) => (
                     <Box
                       key={movie.id}
-                      bgPhoto={makeImagePath(movie.backdrop_path)}
+                      bgPhoto={makeImagePath(movie.backdrop_path, "w500")}
                     />
                   ))}
               </Row>
