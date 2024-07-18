@@ -78,7 +78,7 @@ const boxVariants = {
   hover: {
     scale: 1.3,
     transition: {
-      delay: 2,
+      delay: 0.5,
     },
   },
 };
@@ -130,8 +130,9 @@ function Home() {
                     <Box
                       key={movie.id}
                       bgPhoto={makeImagePath(movie.backdrop_path, "w500")}
-                      whileHover={{ scale: 1.3 }}
-                      transition={{ delay: 1 }}
+                      whileHover="hover"
+                      initial="normal"
+                      variants={boxVariants}
                     />
                   ))}
               </Row>
