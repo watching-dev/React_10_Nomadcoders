@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { makeImagePath } from "../utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 const Wrapper = styled.div`
   background-color: black;
@@ -63,6 +64,7 @@ const Box = styled(motion.div)<{ bgPhoto: string }>`
   &:last-child {
     transform-origin: center right;
   }
+  cursor: pointer;
 `;
 
 const rowVariants = {
@@ -117,6 +119,8 @@ const infoVariants = {
 };
 
 function Home() {
+  const history = useHistory();
+  const bigMovieMatch = useRouteMatch<{ movieId: string }>("/movie/:movieId");
   const { data, isLoading } = useQuery<IGetMoviesResult>(
     ["movies", "nowPlaying"],
     getMovies
@@ -136,6 +140,9 @@ function Home() {
   const offset = 6;
   console.log(data, isLoading);
   console.log("----");
+  const onBoxClicked = (movieId: number) => {
+    history.push(`/movies/${movieId}`);
+  };
   return (
     <Wrapper>
       {isLoading ? (
@@ -161,12 +168,14 @@ function Home() {
                   .slice(offset * index, offset * index + offset)
                   .map((movie) => (
                     <Box
+                      layoutId={movie.id + ""}
                       key={movie.id}
                       bgPhoto={makeImagePath(movie.backdrop_path, "w500")}
                       whileHover="hover"
                       initial="normal"
                       transition={{ type: "tween" }}
                       variants={boxVariants}
+                      onClick={() => onBoxClicked(movie.id)}
                     >
                       <Info variants={infoVariants}>
                         <h4>{movie.title}</h4>
@@ -176,6 +185,7 @@ function Home() {
               </Row>
             </AnimatePresence>
           </Slider>
+          <AnimatePresence>{bigMovieMatch ? null : null}</AnimatePresence>
         </>
       )}
     </Wrapper>
