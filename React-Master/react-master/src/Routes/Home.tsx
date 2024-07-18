@@ -63,7 +63,6 @@ const Box = styled(motion.div)<{ bgPhoto: string }>`
   &:last-child {
     transform-origin: center right;
   }
-  position: relative;
 `;
 
 const rowVariants = {
@@ -83,7 +82,6 @@ const boxVariants = {
     scale: 1,
   },
   hover: {
-    zIndex: 99,
     scale: 1.3,
     y: -50,
     transition: {
