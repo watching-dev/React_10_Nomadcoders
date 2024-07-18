@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import { getMovies, IGetMoviesResult } from "../api";
 import styled from "styled-components";
 import { makeImagePath } from "../utils";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Wrapper = styled.div`
   background-color: black;
@@ -43,7 +43,6 @@ const Slider = styled.div`
 const Row = styled(motion.div)`
   display: grid;
   gap: 10px;
-  /* margin-bottom: 5px; */
   position: absolute;
   grid-template-columns: repeat(6, 1fr);
   width: 100%;
@@ -72,30 +71,16 @@ function Home() {
             <Overview>{data?.results[0].overview}</Overview>
           </Banner>
           <Slider>
-            <Row>
-              <Box />
-              <Box />
-              <Box />
-              <Box />
-              <Box />
-              <Box />
-            </Row>
-            <Row>
-              <Box />
-              <Box />
-              <Box />
-              <Box />
-              <Box />
-              <Box />
-            </Row>
-            <Row>
-              <Box />
-              <Box />
-              <Box />
-              <Box />
-              <Box />
-              <Box />
-            </Row>
+            <AnimatePresence>
+              <Row>
+                <Box />
+                <Box />
+                <Box />
+                <Box />
+                <Box />
+                <Box />
+              </Row>
+            </AnimatePresence>
           </Slider>
         </>
       )}
