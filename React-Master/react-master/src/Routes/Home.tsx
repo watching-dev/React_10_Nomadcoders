@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import { getMovies, IGetMoviesResult } from "../api";
 import styled from "styled-components";
 import { makeImagePath } from "../utils";
+import { motion } from "framer-motion";
 
 const Wrapper = styled.div`
   background-color: black;
@@ -35,6 +36,24 @@ const Overview = styled.p`
   margin-bottom: 20px;
 `;
 
+const Slider = styled.div`
+  position: relative;
+`;
+
+const Row = styled(motion.div)`
+  display: grid;
+  gap: 10px;
+  /* margin-bottom: 5px; */
+  position: absolute;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+`;
+
+const Box = styled(motion.div)`
+  background-color: white;
+  height: 200px;
+`;
+
 function Home() {
   const { data, isLoading } = useQuery<IGetMoviesResult>(
     ["movies", "nowPlaying"],
@@ -52,6 +71,32 @@ function Home() {
             <Title>{data?.results[0].title}</Title>
             <Overview>{data?.results[0].overview}</Overview>
           </Banner>
+          <Slider>
+            <Row>
+              <Box />
+              <Box />
+              <Box />
+              <Box />
+              <Box />
+              <Box />
+            </Row>
+            <Row>
+              <Box />
+              <Box />
+              <Box />
+              <Box />
+              <Box />
+              <Box />
+            </Row>
+            <Row>
+              <Box />
+              <Box />
+              <Box />
+              <Box />
+              <Box />
+              <Box />
+            </Row>
+          </Slider>
         </>
       )}
     </Wrapper>
