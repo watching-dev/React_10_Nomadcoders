@@ -1,19 +1,19 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Routes/Home";
-import Tv from "./Routes/Tv";
-import Search from "./Routes/Search";
 import Header from "./Components/Header";
+import ComingSoon from "./Routes/ComingSoon";
+import NowPlaying from "./Routes/NowPlaying";
 
 function App() {
   return (
     <Router>
       <Header />
       <Switch>
-        <Route path="/tv">
-          <Tv />
+        <Route path="/coming-soon">
+          <ComingSoon />
         </Route>
-        <Route path="/search">
-          <Search />
+        <Route path="/now-playing">
+          <NowPlaying />
         </Route>
         <Route path={["/", "/movies/:movieId"]}>
           <Home />

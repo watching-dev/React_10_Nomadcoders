@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import styled from "styled-components";
 import { motion, AnimatePresence, useViewportScroll } from "framer-motion";
-import { getMovies, getPopular, IGetMoviesResult } from "../api";
+import { getMovies, IGetMoviesResult } from "../api";
 import { makeImagePath } from "../utils";
 import { useState } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
@@ -133,6 +133,7 @@ const infoVariants = {
   hover: {
     opacity: 1,
     transition: {
+      delay: 0.5,
       duaration: 0.1,
       type: "tween",
     },
@@ -141,13 +142,13 @@ const infoVariants = {
 
 const offset = 6;
 
-function Home() {
+function NowPlaying() {
   const history = useHistory();
   const bigMovieMatch = useRouteMatch<{ movieId: string }>("/movies/:movieId");
   const { scrollY } = useViewportScroll();
   const { data, isLoading } = useQuery<IGetMoviesResult>(
-    ["movies", "popular"],
-    getPopular
+    ["movies", "nowPlaying"],
+    getMovies
   );
   const [index, setIndex] = useState(0);
   const [leaving, setLeaving] = useState(false);
@@ -241,4 +242,4 @@ function Home() {
     </Wrapper>
   );
 }
-export default Home;
+export default NowPlaying;

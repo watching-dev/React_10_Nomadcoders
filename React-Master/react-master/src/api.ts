@@ -35,3 +35,17 @@ export function getMovies() {
     options
   ).then((response) => response.json());
 }
+
+export function getComingSoon() {
+  return fetch(
+    `${BASE_PATH}/movie/upcoming?language=ko-KR&page=1`,
+    options
+  ).then((response) => response.json());
+}
+
+export function getPopular() {
+  return fetch(
+    `${BASE_PATH}/movie/popular?language=ko-KR&page=1`,
+    options
+  ).then((response) => response.json());
+}
