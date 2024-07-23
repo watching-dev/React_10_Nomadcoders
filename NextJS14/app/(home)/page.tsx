@@ -1,7 +1,7 @@
 import Navigation from "../../components/navigation";
 
 export const metadata = {
-  title: "Home | Next!!",
+  title: "Home",
 };
 
 export default function Page() {
