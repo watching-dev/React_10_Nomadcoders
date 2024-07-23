@@ -13,4 +13,7 @@ export default function MovieDetail({
     params는 [id]로 했던것이 변수 이름으로 출력되고 현재 url의 id 값이 출력된다
     searchParams는 url에 /123123?region=kr&country=korea 처럼 되어 있으면
     searchParams에 각각 출력된다
+
+    /movies/:id 와 같은 것
+    <MoviewDetail params={{id: 123123}} /> 와 같은 것
 */
