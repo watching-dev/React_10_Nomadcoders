@@ -5,12 +5,18 @@ async function getMovie(id: string) {
   return response.json();
 }
 
+async function getVideos(id: string) {
+  const response = await fetch(`${API_URL}/${id}/videos`);
+  return response.json();
+}
+
 export default async function MovieDetail({
   params: { id },
 }: {
   params: { id: string };
 }) {
   const movie = await getMovie(id);
+  const video = await getVideos(id);
   return <h1>{movie.title}</h1>;
 }
 
