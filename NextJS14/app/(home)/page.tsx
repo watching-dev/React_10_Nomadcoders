@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import Navigation from "../../components/navigation";
 import { json } from "stream/consumers";
