@@ -6,7 +6,7 @@ export const metadata = {
   title: "Home",
 };
 
-export const API_URL = "https://books-api.nomadcoders.workers.dev/lists";
+const API_URL = "https://books-api.nomadcoders.workers.dev/lists";
 
 async function getMovies() {
   await new Promise((resolve) => setTimeout(resolve, 1000));
