@@ -24,7 +24,7 @@ export default async function BookDetail({ params: { encoded } }: IGParams) {
   const title = books.results.list_name;
   return (
     <div>
-      <Suspense fallback={<h1>Loading..</h1>}>
+      <Suspense fallback={<h1>Loading...</h1>}>
         <h1 className={styles.h1}>{title}</h1>
         {books.results.books.map((book) => (
           <BookInfo
