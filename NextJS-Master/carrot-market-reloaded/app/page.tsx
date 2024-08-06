@@ -1,3 +1,4 @@
+import FormBtn from "@/components/form-btn";
 import FormInput from "@/components/form-input";
 
 export default function Home() {
@@ -8,9 +9,7 @@ export default function Home() {
           <FormInput type="email" placeholder="email" required={true} />
           <FormInput type="text" placeholder="name" required={true} />
           <FormInput type="password" placeholder="password" required={true} />
-          <button className="w-full h-10 bg-gray-100 rounded-md font-semibold">
-            Log in
-          </button>
+          <FormBtn loading={false} />
         </form>
         <div className="text-red-500 font-medium">text</div>
       </div>
