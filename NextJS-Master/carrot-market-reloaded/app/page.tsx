@@ -1,16 +1,13 @@
+import FormInput from "@/components/form-input";
+
 export default function Home() {
   return (
     <>
       <div className="flex flex-col gap-1 p-5">
         <form className="flex flex-col gap-5">
-          <input
-            className="bg-transparent w-full h-10 rounded-md focus:outline-none ring-1"
-            type="email"
-            placeholder="email"
-            required
-          ></input>
-          <input type="text" placeholder="name" required></input>
-          <input type="password" placeholder="password" required></input>
+          <FormInput type="email" placeholder="email" required={true} />
+          <FormInput type="text" placeholder="name" required={true} />
+          <FormInput type="password" placeholder="password" required={true} />
           <button className="w-full h-10 bg-gray-100 rounded-md font-semibold">
             Log in
           </button>
