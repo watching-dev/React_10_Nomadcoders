@@ -31,7 +31,7 @@ export default function Home() {
             required={true}
           />
           <FormBtn loading={false} />
-          <FormErr errors={["wrong1, wrong2"]} />
+          <FormErr errors={["wrong password"]} />
         </form>
       </div>
     </>
