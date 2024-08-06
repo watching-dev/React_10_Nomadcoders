@@ -1,3 +1,4 @@
+import FormErr from "@/components/\bfrom-err";
 import FormBtn from "@/components/form-btn";
 import FormInput from "@/components/form-input";
 
@@ -14,8 +15,8 @@ export default function Home() {
           <FormInput type="text" placeholder="name" required={true} />
           <FormInput type="password" placeholder="password" required={true} />
           <FormBtn loading={false} />
+          <FormErr errors={["wrong1, wrong2"]} />
         </form>
-        <div className="text-red-500 font-medium">text</div>
       </div>
     </>
   );
