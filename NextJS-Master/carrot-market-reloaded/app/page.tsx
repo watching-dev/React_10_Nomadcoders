@@ -1,17 +1,17 @@
-import FormErr from "@/components/\bfrom-err";
+"use client";
+
 import FormBtn from "@/components/form-btn";
 import FormInput from "@/components/form-input";
+import { useFormState } from "react-dom";
+import { handleForm } from "./action";
+import FormErr from "@/components/from-err";
 
 export default function Home() {
-  async function handleForm(data: FormData) {
-    "use server";
-    console.log("---");
-    console.log(data.get("email"), data.get("name"), data.get("password"));
-  }
+  const [state, action] = useFormState(handleForm, null);
   return (
     <>
       <div className="flex flex-col gap-1 p-5">
-        <form action={handleForm} className="flex flex-col gap-5">
+        <form action={action} className="flex flex-col gap-5">
           <FormInput
             name="email"
             type="email"
@@ -31,7 +31,7 @@ export default function Home() {
             required={true}
           />
           <FormBtn loading={false} />
-          <FormErr errors={["wrong password"]} />
+          <FormErr errors={state?.error ?? []} />
         </form>
       </div>
     </>
