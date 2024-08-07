@@ -6,8 +6,8 @@ const formSchema = z.object({
     .string()
     .email()
     .refine((email) => email.includes("@zod.com"), "No zod.com"),
-  name: z.string().min(5),
-  password: z.string().min(10),
+  name: z.string().min(5, "5글자 이상!!"),
+  password: z.string().min(10, "10글자 이상!!"),
 });
 
 export async function handleForm(prev: any, data: FormData) {

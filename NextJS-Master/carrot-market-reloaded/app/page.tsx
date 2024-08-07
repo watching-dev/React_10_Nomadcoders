@@ -32,6 +32,8 @@ export default function Home() {
           />
           <FormBtn loading={false} />
           <FormErr errors={state?.error.fieldErrors.email ?? []} />
+          <FormErr errors={state?.error.fieldErrors.name ?? []} />
+          <FormErr errors={state?.error.fieldErrors.password ?? []} />
         </form>
       </div>
     </>
